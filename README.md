@@ -1,6 +1,10 @@
 # Finance Voice AI
 
-API Inteligente com Spring Boot e Spring AI - Orçamento Financeiro com Voz
+API inteligente de orçamento financeiro com Spring Boot e Spring AI
+
+Assistente de IA que interpreta comandos de voz para gerenciar suas finanças —
+registrar despesas, consultar saldos e obter relatórios mensais, tudo por conversa.
+Utiliza Ollama (LLMs 100% locais) com custo zero em APIs externas.
 
 ## 📋 Visão Geral
 
