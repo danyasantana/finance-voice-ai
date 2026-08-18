@@ -5,8 +5,6 @@ import com.finance.voice.domain.transaction.TransactionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.embedding.EmbeddingModel;
-import org.springframework.ai.embedding.EmbeddingRequest;
-import org.springframework.ai.embedding.EmbeddingResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -37,17 +35,13 @@ public class EmbeddingService {
             return List.of();
         }
 
-        EmbeddingRequest queryRequest = new EmbeddingRequest(List.of(query), null);
-        EmbeddingResponse queryResponse = embeddingModel.call(queryRequest);
-        float[] queryEmbedding = queryResponse.getResult().getOutput();
+        float[] queryEmbedding = embeddingModel.embed(query);
 
         List<TransactionScore> scoredTransactions = new ArrayList<>();
 
         for (Transaction transaction : allTransactions) {
             String transactionText = buildTransactionText(transaction);
-            EmbeddingRequest transactionRequest = new EmbeddingRequest(List.of(transactionText), null);
-            EmbeddingResponse transactionResponse = embeddingModel.call(transactionRequest);
-            float[] transactionEmbedding = transactionResponse.getResult().getOutput();
+            float[] transactionEmbedding = embeddingModel.embed(transactionText);
 
             double similarity = cosineSimilarity(queryEmbedding, transactionEmbedding);
             scoredTransactions.add(new TransactionScore(transaction, similarity));

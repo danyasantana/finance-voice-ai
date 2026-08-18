@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     const results = response.map(r => {
                         const t = r.transaction;
-                        return `${t.type.description}: R$ ${t.money.amount} - ${t.description || 'Sem descricao'} (similaridade: ${(r.score * 100).toFixed(1)}%)`;
+                        return `${t.type}: R$ ${t.money.amount} - ${t.description || 'Sem descricao'} (similaridade: ${(r.score * 100).toFixed(1)}%)`;
                     }).join('\n');
                     chat.addMessage(`Resultados da busca:\n${results}`, 'assistant');
                 }
