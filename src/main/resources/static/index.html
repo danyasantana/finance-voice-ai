@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Voice AI</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Finance Voice AI</h1>
+                <p>Spring AI Demo - 6 Features</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="nav-buttons">
+                    <button class="nav-btn active" data-action="chat">
+                        Chat
+                    </button>
+                    <button class="nav-btn" data-action="voice">
+                        Voz
+                    </button>
+                    <button class="nav-btn" data-action="image">
+                        Imagem
+                    </button>
+                    <button class="nav-btn" data-action="search">
+                        Busca
+                    </button>
+                    <button class="nav-btn" data-action="moderation">
+                        Moderacao
+                    </button>
+                </nav>
+
+                <!-- Transactions List -->
+                <section class="transactions-section">
+                    <h3>Transacoes</h3>
+                    <ul id="transaction-list" class="transaction-list"></ul>
+                    <button id="btn-refresh" class="btn-secondary">Atualizar</button>
+                </section>
+            </aside>
+
+            <!-- Content Area -->
+            <section class="content">
+                <!-- Chat Area -->
+                <div class="chat-area" id="chat-area">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message system">
+                            <p>Bem-vindo ao Finance Voice AI! Como posso ajudar?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Area (Hidden by default) -->
+                <div class="image-area hidden" id="image-area">
+                    <div class="image-container">
+                        <p>Imagem gerada pela IA aparecera aqui</p>
+                        <div id="generated-image"></div>
+                    </div>
+                </div>
+
+                <!-- Moderation Area (Hidden by default) -->
+                <div class="moderation-area hidden" id="moderation-area">
+                    <div class="moderation-container">
+                        <h3>Teste de Moderacao</h3>
+                        <textarea id="moderation-input" placeholder="Digite um texto para testar a moderacao..."></textarea>
+                        <button id="btn-moderate" class="btn-primary">Verificar</button>
+                        <div id="moderation-result" class="moderation-result"></div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <textarea id="user-input" placeholder="Digite seu comando..." rows="2"></textarea>
+                    <div class="input-buttons">
+                        <button id="btn-record" class="btn-voice" title="Gravar audio">
+                            Gravar
+                        </button>
+                        <button id="btn-send" class="btn-primary" title="Enviar mensagem">
+                            Enviar
+                        </button>
+                        <button id="btn-clear" class="btn-secondary" title="Limpar chat">
+                            Limpar
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span id="status">Pronto</span>
+            <span id="session-info">Sessao: default</span>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
